@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.home{
+    background-image: url(../images/background.jpg);
+    background-size: cover;
+    height: 100%;
+}
+.home .nav .links a{
+    color: white;
+   font-weight: 600;
+    text-decoration: none;
+    font-size: 20px;
+}
+.home .nav .links{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+
+.home .nav ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+    list-style-type: none;
+}
+.home .nav li{
+    padding: 10px;
+}
+.home .head-1{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.home .head-1  .text--1{
+    color: white;
+    font-size: 3.5em;
+    line-height: 60px;
+    padding-left: 40px;
+    padding-top:30px;
+    word-spacing: 10px;
+    letter-spacing: 2px;
+    font-weight: 600;
+
+}
+.home .head-1  .text--1 hr{
+    width: 20%;
+    height: 5px;
+    background-color: wheat;
+     margin-top: 20px;
+
+}
+.home .head-1  .text--2{
+    color: white;
+    font-size: 25px;
+    padding-left: 40px;
+    padding-top: 35px;
+    padding-bottom: 40px;
+    line-height: 30px;
+}
+.home .head-1  .btn-getStarted{
+    color: white;
+    width: 20%;
+    border: 1px white solid;
+    margin: 40px;
+   font-size: 12px;
+   padding: 10px;
+   background-color:#E7895E ;
+   font-weight: 700;
+}
+.text--1 .village{
+    font-size: 1em;
+    color: #E7895E;
+}
+

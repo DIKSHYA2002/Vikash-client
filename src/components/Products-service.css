@@ -1,0 +1,19 @@
+.forms{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.form-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 50px;
+   
+}
+.form-main .fm{
+
+    padding: 10px;
+}
+
