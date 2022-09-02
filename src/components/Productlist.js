@@ -5,29 +5,29 @@ import { useState,useEffect } from 'react';
 
 export const  Productlist =(props)=>{
 
-  const [itemslist , setItems]= useState([]);
+  const [itemslist , setitemslist]= useState([]);
   useEffect(()=>{
-     axios.get("http://localhost:4001/products")
-     .then((res)=> setItems(res.data) )
-      .catch((err)=> console.log(err));
-  })
+    getItems();
+ },[])
+        const getItems = async () => {
+          const data = await fetch("http://localhost:4001/products");
+          const items_data = await data.json();
+          setitemslist(items_data.products);
+        }
+
  
     return (
       <div>
-        
-        {props.children};
-        {
-           
-        itemslist.map((item, index) => 
+        { 
+        itemslist.map((item,index) => 
                 {
-                const base64String = btoa(
-                    String.fromCharCode(...new Uint8Array((item.ProductImage.data.data)))); 
-                    item.ProductImage = `data:image/png;base64,${base64String}`;
-                    < Products ProductImage ={item.ProductImage} Name={item.Name} Price={item.Price} Description={item.Description}  Availabilty = {item.Availability} key={index} />
+              
+                    < Products ProductImage ={item.ProductImage} Name={item.Name} Price={item.Price} Description={item.Description}  Availabilty = {item.Availability} />
+                  
                 }
         )
         
-        } 
+        }  
         
      </div>  
     );
