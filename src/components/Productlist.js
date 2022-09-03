@@ -3,6 +3,7 @@ import { Products } from './Products';
 import axios from "axios";
 import { useContext,useEffect } from 'react';
 import ProductContext from '../store/ProductContext';
+import './ProductList.css';
 
 
 export const  Productlist =(props)=>{
@@ -18,8 +19,13 @@ export const  Productlist =(props)=>{
 
  
     return (
-      <div>
-        {props.children}; 
+      <div className='list'>
+        <h1>Products</h1>
+      <div className='ProductsList'>
+        
+
+
+        {props.children}
          { ProductCtx.items.map((item,index) => 
              
                  < Products  Name={item.Name} Price={item.Price} Description={item.Description}  Availability = {item.Availability} key = {index}/>
@@ -27,8 +33,9 @@ export const  Productlist =(props)=>{
              
          
            )}  
-       </div>  
-    );
+       </div> 
+       </div> 
+    )
   
             }
             // ProductImage={`data:image/png;base64,${base64String}`}

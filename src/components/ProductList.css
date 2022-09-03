@@ -1,0 +1,14 @@
+.ProductsList ,.servicesList{
+  display: flex;
+  flex-direction: row;
+  padding: 50px;
+  justify-content: space-evenly;
+}
+.list h1{
+    font-size: 50px;
+    text-align: center ;
+}
+.item-container{
+    padding: 10px;
+
+}
