@@ -3,7 +3,7 @@ import axios from "axios";
 import { useContext,useEffect } from 'react';
 import ServiceContext from '../store/ServiceContext';
 import './ProductList.css';
-
+import { Navbar } from "./Navbar";
 
 export const Servicelist =(props)=>{
           const ServiceCtx = useContext(ServiceContext);
@@ -15,15 +15,11 @@ export const Servicelist =(props)=>{
           const items_data = await data.json();
           ServiceCtx.setservices(items_data.products);
        }
-
- 
     return (
       <div className='list'>
+        <Navbar/>
         <h1>Services</h1>
       <div className='servicesList'>
-        
-
-
         {props.children}
          {  ServiceCtx.services.map((item,index) => 
              

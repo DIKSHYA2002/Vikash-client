@@ -4,6 +4,7 @@ import axios from "axios";
 import { useContext,useEffect } from 'react';
 import ProductContext from '../store/ProductContext';
 import './ProductList.css';
+import { Navbar } from './Navbar';
 
 
 export const  Productlist =(props)=>{
@@ -19,7 +20,9 @@ export const  Productlist =(props)=>{
 
  
     return (
+
       <div className='list'>
+        <Navbar/>
         <h1>Products</h1>
       <div className='ProductsList'>
         

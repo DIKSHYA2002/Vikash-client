@@ -1,6 +1,7 @@
 import React from "react";
 import './landing-page.css';
 import logo from '../images/logo.png'
+import { Link } from "react-router-dom";
 
 export function Homepage() {
     return(
@@ -8,12 +9,12 @@ export function Homepage() {
             <div className="nav">
                 <div className="links">
                     <ul>
-                        <li><a href="">HOME</a></li>
-                        <li><a href="">CREATE</a></li>
-                        <li><a href="">BLOGS</a></li>
-                        <li><a href="">PRODUCTS</a></li>
-                        <li><a href="">SERVICES</a></li>
-                        <li><a href="">ABOUT</a></li>
+                       <li><Link to = "/">HOME</Link></li>
+                        <li><Link to = "/create">CREATE</Link></li>
+                        <li><Link to = "/Blogs">BLOGS</Link></li>
+                        <li><Link to = "/products">PRODUCTS</Link></li>
+                        <li><Link to = "/services">SERVICES</Link></li>
+                        <li><Link to = "/about">ABOUT</Link></li>
                     </ul>
                     <div className="logo">
                        <img src={logo} ></img>

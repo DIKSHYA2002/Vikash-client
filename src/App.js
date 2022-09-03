@@ -10,11 +10,13 @@ function App() {
      <div>
       <ProductState>
         <ServiceState>
-          <Homepage/>
-          <FormsAll/>
-          <Productlist/>
-          <Servicelist/>
-          </ServiceState>
+        <Routes>
+        <Route path='/' element={ <Homepage/>}/>
+        <Route path='/add' element={ <FormsAll/>}/>
+        <Route path='/products' element={<Productlist />}/>
+        <Route path='/services' element={ <Servicelist/>}/>
+        </Routes>
+        </ServiceState>
       </ProductState>
       </div>
   );
