@@ -17,7 +17,7 @@ export const  AddProducts =(props)=> {
                     data.append("Description" , Description);
                     data.append("Availabilty" , Availabilty);
                     event.preventDefault();
-                   axios.post("http://localhost:4000/products/add" , data).then(res=>
+                   axios.post("http://localhost:4001/products/add" , data).then(res=>
                    console.log(res)).catch(err=> console.log(err));
                    event.preventDefault();
                 }
@@ -85,7 +85,7 @@ export const  AddServices =(props)=> {
                     data.append("testImage" , serviceImage);
                     data.append("Availabilty" , Availabilty);
                     event.preventDefault();
-                   axios.post("http://localhost:4000/services/add" , data).then(res=>
+                   axios.post("http://localhost:4001/services/add" , data).then(res=>
                    console.log(res)).catch(err=> console.log(err));
                    event.preventDefault();
                 }
