@@ -22,17 +22,18 @@ export function Products(){
         <h1>Products</h1>
         <div className='ProductsList'>
                         <div className='product' >
-                                    {ProductCtx.items.map((singleData,index) => {
-                                   const base64String = btoa( String.fromCharCode(...new Uint8Array(singleData.ProductImage.data.data))  );
-                                    return <div className='item-container'key={index}>
-                                    <img src={`data:image/png;base64,${base64String}`}  width="300"></img>
-                                    <div className='Name'><h3>{singleData.Name}</h3></div>
-                                    <div className='Price'><h3>{singleData.Price}</h3></div>
-                                    <div className='Description'>
-                                    <h3>{singleData.Description}</h3>
-                                    <div className='Availabilty'><h3>{singleData.Availability}</h3></div>
-                                    <button className='buyNow'>buynow</button>
-                                    </div> 
+                                    {ProductCtx.items.map((singleData,index) => 
+                                    {
+                                      const base64String = btoa( String.fromCharCode(...new Uint8Array(singleData.ProductImage.data.data))  );
+                                        return <div className='item-container'key={index}>
+                                        <img src={`data:image/png;base64,${base64String}`}  width="300"></img>
+                                        <div className='Name'><h3>{singleData.Name}</h3></div>
+                                        <div className='Price'><h3>{singleData.Price}</h3></div>
+                                        <div className='Description'>
+                                        <h3>{singleData.Description}</h3>
+                                        <div className='Availabilty'><h3>{singleData.Availability}</h3></div>
+                                        <button className='buyNow'>buynow</button>
+                                        </div> 
                                  
                                 </div>
                                     
@@ -44,4 +45,3 @@ export function Products(){
     </div>
     )
 }
-//  

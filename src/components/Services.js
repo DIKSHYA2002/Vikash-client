@@ -1,20 +1,48 @@
 import  React ,{useContext} from 'react';
-import axios from 'axios';
 import './ProductList.css';
+import ServiceContext from '../store/ServiceContext';
+import './ProductList.css';
+import { Navbar } from "./Navbar";
+import {useEffect } from 'react';
 
 
-export function Services(props){
+export function Services(props)
+{
+            const ServiceCtx = useContext(ServiceContext);
+            useEffect(()=>{
+            getServices();
+        },[])
+        const  getServices = async () => {
+                const data = await fetch("http://localhost:4001/services");
+                const items_data = await data.json();
+                
+                ServiceCtx.setservices(items_data.products);
+        }
     return (
-        <div className='service_list'>
-            <div className='item-container'>
-                <div><img src={props.serviceimage} className='itemimage'></img></div>
-                <div className='TypeOfService'><h3>{props.TypeOfService}</h3></div>
-                <div className='Cost'><h3>{props.Cost}</h3></div>
-                <div className='servicedescription'>
-                <h3>{props.Servicedescription}</h3>
-                <button className='Avail'>avail now</button>
-                </div>
-            </div>
-        </div>
-    )
+             <div className='list'>
+                    <Navbar/>
+                    <h1>Services</h1>
+                        <div className='service_list'>
+                                <div className='services'>
+                                    {  ServiceCtx.services.map((singleData,index) => 
+                                        {
+                                                const base64String = btoa( String.fromCharCode(...new Uint8Array(singleData.serviceImage.data.data))  );
+
+                                                return <div className='item-container' key={index}>
+                                                    <img src={`data:image/png;base64,${base64String}`} width='300' className='itemimage'></img>
+                                                    <div className='TypeOfService'><h3>{singleData.TypeOfService}</h3></div>
+                                                    <div className='Cost'><h3>{singleData.Cost}</h3></div>
+                                                    <div className='servicedescription'>
+                                                    <h3>{singleData.Servicedescription}</h3> </div>
+                                                    <button className='Avail'>avail now</button>
+                                                    </div>
+                                        
+                                            
+                                                }
+                                        )
+                                    }
+                              </div>
+                      </div>
+              </div>
+            )
 }
