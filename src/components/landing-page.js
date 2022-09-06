@@ -9,7 +9,7 @@ export function Homepage() {
             <div className="nav">
                 <div className="links">
                     <ul>
-                       <li><Link to = "/">HOME</Link></li>
+                        <li><Link to = "/">HOME</Link></li>
                         <li><Link to = "/create">CREATE</Link></li>
                         <li><Link to = "/Blogs">BLOGS</Link></li>
                         <li><Link to = "/products">PRODUCTS</Link></li>
