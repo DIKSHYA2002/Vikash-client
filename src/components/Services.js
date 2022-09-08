@@ -4,6 +4,7 @@ import ServiceContext from '../store/ServiceContext';
 import './ProductList.css';
 import { Navbar } from "./Navbar";
 import {useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 export function Services(props)
@@ -18,10 +19,11 @@ export function Services(props)
                 
                 ServiceCtx.setservices(items_data.products);
         }
+        const navigate = useNavigate();
     return (
              <div className='list'>
                     <div className='navs'>
-          <Navbar />
+         <Navbar />
          </div>
                     <h1>Services</h1>
                         <div className='service_list'>
@@ -45,6 +47,7 @@ export function Services(props)
                                     }
                               </div>
                       </div>
+                      <button onClick={()=>navigate("/add")}>ADD PRODUCTS</button>
               </div>
             )
 }

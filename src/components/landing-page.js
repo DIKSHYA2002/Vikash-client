@@ -1,41 +1,17 @@
 import React from "react";
 import './landing-page.css';
 import { Navbar } from "./Navbar";
-// import logo from '../images/logo.png'
-// import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
-// import NavBar from "./Navbar";
+
 
 export function Homepage() {
     const { loginWithRedirect} = useAuth0();
-    // const { logout } = useAuth0();
+   
     return (
         <>
-          {/* <Navbar /> */}
+        
             <div className="home" >
-                {/* <div className="nav">
-                <div className="links">
-                    <ul>
-                        <li><Link to="/">HOME</Link></li>
-                        {isAuthenticated ? (<ul>
-                            <li><Link to="/create">CREATE</Link></li>
-                            <li><Link to="/Blogs">BLOGS</Link></li>
-                            <li><Link to="/products">PRODUCTS</Link></li>
-                            <li><Link to="/services">SERVICES</Link></li>
-                            <li><Link to="/about">ABOUT</Link></li>
-                            <li>
-                                <button className="btn" onClick={() => logout({ returnTo: window.location.origin })}>
-                                    Log Out
-                                </button>
-                            </li></ul>) : (<li><button className="btn" onClick={() => loginWithRedirect()}>Log In</button></li>)}
-                            <li>{isAuthenticated && <p>{user.email}</p>}</li>
-                    </ul>
-                    <div className="logo">
-                        <img src={logo} ></img>
-                    </div>
-                </div>
-
-            </div> */}
+               
                 <Navbar />
                 <div className="head-1">
                     <div className="text--1">

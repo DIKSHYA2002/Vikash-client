@@ -4,6 +4,7 @@ import './ProductList.css';
 import { useEffect } from 'react';
 import ProductContext from '../store/ProductContext';
 import { Navbar } from './Navbar';
+import { useNavigate } from 'react-router-dom';
 
 export function Products(){
     const ProductCtx = useContext(ProductContext);
@@ -15,6 +16,7 @@ export function Products(){
         const items_data = await data.json();
         ProductCtx.setItems(items_data.products);
       }
+      const navigate = useNavigate();
 
     return (
         <div className='list'>
@@ -35,15 +37,16 @@ export function Products(){
                                         <h3>{singleData.Description}</h3>
                                         <div className='Availabilty'><h3>{singleData.Availability}</h3></div>
                                         <button className='buyNow'>buynow</button>
-                                        </div> 
-                                 
+                                        </div>    
                                 </div>
-                                    
+  
                                     
                                 })}
                         
                         </div>
+                       
                         </div>
+                        <button  onClick={()=>navigate("/add")}>ADD PRODUCTS</button>
     </div>
     )
 }

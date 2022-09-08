@@ -1,6 +1,7 @@
 import React ,{useContext, useState} from "react";
 import  axios from "axios";
 import './Products-service.css';
+import { Navbar } from "./Navbar";
 
 export const  AddProducts =(props)=> {
     const [Name , setName ] = useState();
@@ -23,9 +24,8 @@ export const  AddProducts =(props)=> {
                 }
 
             return(
-                
+
                     <div className="form1-container">
-                        
                         <form className="form-main" >
                             <div className="heading">
                                 <h1>products</h1>
@@ -140,9 +140,15 @@ export const  AddServices =(props)=> {
 }
 export const FormsAll = (props)=>{
     return(
+        <div className="Allforms">
+            <div className="
+            navs">
+                <Navbar/>
+            </div>
         <div className="forms">
         <AddProducts/>
         <AddServices/>
+       </div>
        </div>
     );
    
