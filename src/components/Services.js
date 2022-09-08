@@ -20,7 +20,9 @@ export function Services(props)
         }
     return (
              <div className='list'>
-                    <Navbar/>
+                    <div className='navs'>
+          <Navbar />
+         </div>
                     <h1>Services</h1>
                         <div className='service_list'>
                                 <div className='services'>

@@ -9,32 +9,41 @@
     background-image: url(../images/background.jpg);
     background-size: cover;
     height: 100%;
+    overflow: hidden;
 }
-.home .nav .links a{
+/* .home .nav .links a{
     color: white;
-   font-weight: 600;
+    font-weight: 600;
     text-decoration: none;
     font-size: 20px;
-}
-.home .nav .links{
+} */
+/* .home .nav .links{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
 
-}
+} */
 
+/* .btn{
+    border: none;
+    padding: 11px 22px 11px 22px;
+    font-size: 23px;
+    /* background-color:#E7895E; 
+    font-weight: bold;
+    cursor:pointer;
+} */
 
-.home .nav ul{
+/* .home .nav ul{
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 20px;
+    padding: 5px;
     list-style-type: none;
-}
-.home .nav li{
+} */
+/* .home .nav li{
     padding: 10px;
-}
+} */
 .home .head-1{
     padding-top: 30px;
     padding-bottom: 30px;
@@ -65,15 +74,15 @@
     padding-bottom: 40px;
     line-height: 30px;
 }
-.home .head-1  .btn-getStarted{
+.home .head-1  .btn-getStarted button{
     color: white;
     width: 20%;
     border: 1px white solid;
     margin: 40px;
-   font-size: 12px;
-   padding: 10px;
-   background-color:#E7895E ;
-   font-weight: 700;
+    font-size: 23px;
+    padding: 10px;
+    background-color:#E7895E ;
+    font-weight: bold;
 }
 .text--1 .village{
     font-size: 1em;
