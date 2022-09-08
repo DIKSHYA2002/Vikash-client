@@ -208,7 +208,7 @@
       z-index: 1;
     }
     .nav-item .active {
-      color: #713daa;
+      color: #bc7100;
       border: none;
     }
     .nav-links {
@@ -249,7 +249,7 @@
       z-index: 1;
     }
     .nav-item .active {
-      color: #713daa;
+      color: #bc7100;
       border: none;
       line-height: 40px;
     }
