@@ -3,6 +3,7 @@ import { useContext, useState } from "react";
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Navbar } from "./Navbar";
+import "./BlogList.css";
 export const BlogList = (props) => {
   const [blog, setblog] = useState([]);
   const navigate = useNavigate();
@@ -21,6 +22,9 @@ export const BlogList = (props) => {
   return (
     <div>
       <Navbar />
+      <div className="heading">
+        <h1>BLOGS</h1>
+      </div>
       {blog.map((singleData, index) => {
         const base64String = btoa(
           String.fromCharCode(...new Uint8Array(singleData.blogImage.data.data))
@@ -37,11 +41,14 @@ export const BlogList = (props) => {
                 />
               </div>
               <div className="blogName">{singleData.blogName}</div>
+              <div className="clearfix"></div>
+              <div className="rect"></div>
+              <div className="clearfix"></div>
               <div className="blogText">
-                {singleData.blogText.substring(0, 20) + "..."}
+                {singleData.blogText.substring(0, 35) + "..."}
               </div>
               <button
-                className="viewBlog"
+                className="addCart"
                 onClick={(e) => viewBlog(e, singleData._id)}
               >
                 VIEW

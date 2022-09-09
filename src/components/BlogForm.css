@@ -178,7 +178,7 @@ input[type='submit']:hover{
     background-color: #e7895e;
 }
 
-.btn{
+.button{
     border-radius: 50%;
     border: 3px solid #8d5f4b;
     background-color: inherit;
@@ -190,7 +190,7 @@ input[type='submit']:hover{
     margin: 10px;
 }
 
-.btn:hover{
+.button:hover{
     cursor: pointer;
     background-color: #e7895e;
     color: white;

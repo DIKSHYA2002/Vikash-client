@@ -1,0 +1,68 @@
+.container{
+    margin-left: 70px;
+}
+.blog_container{
+    padding: 20px;
+    background-color: rgb(35, 35, 35);
+    float:left;
+    margin: 20px;
+    width: 340px;
+    height: 370px;
+    border-radius: 10px;
+}
+.blogImage img{
+    border-radius: 10px;
+    width:300px;
+    height:200px;
+    object-fit: cover;
+    margin-bottom: 5px;
+    /* border-bottom: 4px solid rgb(203, 203, 203); */
+}
+.blogName{
+    margin:0 0 5px 5px;
+    float: left;
+    font-size: 25px;
+    font-weight: 600;
+}
+.rect{
+    margin-left: 7px;
+    width: 50px;
+    height:5px;
+    background-color: #e7895e;
+    margin-bottom: 10px;
+    margin-right: 0px;
+    float:left;
+}
+.clearfix{
+    clear:both;
+}
+.blogText{
+    float: left;
+    text-align: right;
+    margin-left: 7px;
+    font-size: 15px;
+    color:rgb(210, 210, 210);
+}
+.productDesc{
+    clear: both;
+    margin-left: 20px;
+    font-size: 15px;
+    color: grey;
+}
+.addCart{
+    margin:14px 0px 10px 5px;
+    height: 40px;
+    font-weight: bold;
+    color: white;
+    background-color: #e7895e;
+    width: 296px;
+    transition: 0.3 sec;
+    border-width: 0px;
+}
+.addCart:hover{
+    background-color: #ffa57b;
+    width: 297px;
+    height: 40.5px;
+    margin-left: 5px;
+    border-width: 0px;
+}

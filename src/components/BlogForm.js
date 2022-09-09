@@ -188,14 +188,14 @@ const BlogForm = (props) => {
               </div>
 
               <button
-                className="btn"
+                className="button"
                 title="ADD"
                 onClick={(event) => handleAddFields(event)}
               >
                 +
               </button>
               <button
-                className="btn"
+                className="button"
                 title="REMOVE"
                 disabled={visiting.length === 1}
                 onClick={() => handleRemoveFields(each.id)}
