@@ -3,15 +3,18 @@ import "./BlogForm.css";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import { Navbar } from "./Navbar";
+import { useAuth0 } from "@auth0/auth0-react";
 const BlogForm = (props) => {
+  const { user } = useAuth0();
   const [name, setName] = useState();
   const [text, setText] = useState();
-  const [created, setCreated] = useState();
+  const [location, setLocation] = useState();
+  const [created, setCreated] = useState(`${user.email}`);
   const [famous, setFamous] = useState();
   const [image, setImage] = useState();
 
   const [visiting, setVisiting] = useState([
-    { id: uuidv4(), placeName: "", placeImage: null, placeLocation: "" },
+    { id: uuidv4(), placeName: "", placeImage: null },
   ]);
 
   const changeVisiting = (id, event) => {
@@ -29,7 +32,7 @@ const BlogForm = (props) => {
   const handleAddFields = (event) => {
     setVisiting([
       ...visiting,
-      { id: uuidv4(), placeName: "", placeImage: null, placeLocation: "" },
+      { id: uuidv4(), placeName: "", placeImage: null },
     ]);
     event.preventDefault();
   };
@@ -48,6 +51,7 @@ const BlogForm = (props) => {
     const data = new FormData();
     data.append("blogName", name);
     data.append("blogText", text);
+    data.append("blogLocation", location);
     data.append("uploads", image);
     data.append("blogCreatedBy", created);
     console.log(famous);
@@ -58,10 +62,6 @@ const BlogForm = (props) => {
     });
     visiting.map((item, index) => {
       data.append(`blogVisitingPlaces[${index}][placeName]`, item.placeName);
-      data.append(
-        `blogVisitingPlaces[${index}][placeLocation]`,
-        item.placeLocation
-      );
       data.append(`blogVisitingPlaces[${index}][placeImage]`, null);
       data.append("uploads", item.placeImage);
     });
@@ -92,12 +92,26 @@ const BlogForm = (props) => {
               ></input>
             </div>
             <div className="i_p">
+              Location:
+              <input
+                type="text"
+                id="Location"
+                name="Location"
+                placeholder="Location"
+                onChange={(event) => {
+                  const { value } = event.target;
+                  setLocation(value);
+                }}
+              ></input>
+            </div>
+            <div className="i_p">
               Author:
               <input
                 type="text"
                 id="availabilty"
                 name="Availabity"
                 placeholder="Availability"
+                defaultValue={user.email}
                 onChange={(event) => {
                   const { value } = event.target;
                   setCreated(value);
@@ -163,16 +177,6 @@ const BlogForm = (props) => {
                   id="availabilty"
                   name="placeName"
                   placeholder="Name"
-                  onChange={(event) => changeVisiting(each.id, event)}
-                ></input>
-              </div>
-              <div className="i_p">
-                Location:
-                <input
-                  type="text"
-                  id="availabilty"
-                  name="placeLocation"
-                  placeholder="Location"
                   onChange={(event) => changeVisiting(each.id, event)}
                 ></input>
               </div>

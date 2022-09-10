@@ -229,7 +229,7 @@
     }
   }
 
-  @media screen and (max-width: 1337px) {
+  @media screen and (max-width: 1270px) {
     .nav-menu {
       display: flex;
       flex-direction: column;

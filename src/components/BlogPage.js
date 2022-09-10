@@ -34,32 +34,36 @@ export const BlogPage = (props) => {
   return (
     <div>
       <Navbar />
-      <div className="container">
-        <div className="blog_container">
-          <div className="blogName">{blog.blogName}</div>
-          <div className="blogImage">
+      <div className="blogContainer">
+        <div className="blogpage_container">
+          <div className="blogpageImage">
             <img src={"data:image/png;base64," + image} width="300" alt="" />
           </div>
-          <div className="clearfix"></div>
-          <div className="blogText">{blog.blogText}</div>
-          <div className="blogCreatedBy">
-            <h4>blog Created By - </h4>
-            {blog.blogCreatedBy}
+          <div className="blogDetails">
+            <div className="blogpageName">
+              <div className="rect1"></div>
+              {blog.blogName}
+            </div>
+            <div className="blogpageLocation">{blog.blogLocation}</div>
+            <div className="famous">
+              <h1>Known for</h1>
+            </div>
+            <ul>
+              {fam.map((item, index) => {
+                return (
+                  <li className="blogpageFamousFor" key={index}>
+                    {item}
+                  </li>
+                );
+              })}
+            </ul>
+            <div className="blogpageCreatedBy">{"@" + blog.blogCreatedBy}</div>
           </div>
-          <div className="famous">
-            <h1>VILLAGE FAMOUS FOR</h1>
-          </div>
-          <ul>
-            {fam.map((item, index) => {
-              return (
-                <li className="blogFamousFor" key={index}>
-                  {item}
-                </li>
-              );
-            })}
-          </ul>
 
-          <h1>VISITING PLACES</h1>
+          <div className="clearfix"></div>
+          <div className="blogpageText">{blog.blogText}</div>
+          <div className="rect2"></div>
+          <h1 className="visitinghead">VISITING PLACES</h1>
           {varr.map((item, index) => {
             return (
               <div className="visiting_container" key={index}>
@@ -71,7 +75,8 @@ export const BlogPage = (props) => {
                   />
                 </div>
                 <div className="placeName">{item.placeName}</div>
-                <div className="placeLocation">{item.placeLocation}</div>
+                <div className="clearfix"></div>
+                <div className="rect"></div>
               </div>
             );
           })}
