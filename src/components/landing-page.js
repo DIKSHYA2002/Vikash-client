@@ -2,12 +2,16 @@ import React from "react";
 import "./landing-page.css";
 import { Navbar } from "./Navbar";
 import { useAuth0 } from "@auth0/auth0-react";
-
+import section1 from "../images/Untitled-1.jpg";
+import section2 from "../images/2.jpg";
+import section3 from "../images/3.jpg";
+import { useNavigate } from "react-router-dom";
 export function Homepage() {
   const { loginWithRedirect } = useAuth0();
+  const navigate  = useNavigate();
 
   return (
-    <>
+    <div className="landing">
       <div className="home">
         <Navbar />
         <div className="head-1">
@@ -32,6 +36,20 @@ export function Homepage() {
           </div>
         </div>
       </div>
-    </>
+      
+       <div className="section-1 section">
+       <img src={section1} alt="Loading.." className="section1"/>
+       <button class="btn" onClick={()=>navigate("/blog")}>BLOGS</button>
+       </div>
+       <div className="section-2 section">
+       <img src={section2} alt="Loading.."className="section2" />
+       <button class="btn" onClick={()=>navigate("/products")}>PRODUCTS</button>
+        
+        </div>
+        <div className="section-3 section">
+        <img src={section3} alt="Loading.." className="section3"/>
+        <button class="btn"onClick={()=>navigate("/services")}>SERVICES</button>
+        </div>
+    </div>
   );
 }
