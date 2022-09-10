@@ -9,11 +9,14 @@ import { BlogPage } from "./components/BlogPage";
 import { BlogList } from "./components/BlogList";
 import BlogForm from "./components/BlogForm";
 import "./components/BlogPage.css";
+import { CartState } from "./store/CartState";
+import { Cart } from "./components/cart";
 function App() {
   return (
     <div>
       <ProductState>
         <ServiceState>
+          <CartState>
           <Routes>
             <Route path="/" element={<Homepage />} />
             <Route path="/add" element={<FormsAll />} />
@@ -22,7 +25,9 @@ function App() {
             <Route path="/blog" element={<BlogList />} />
             <Route path="/addblog" element={<BlogForm />} />
             <Route path="/blog/:id" element={<BlogPage />} />
+            <Route path="/cart" element={<Cart />} />
           </Routes>
+          </CartState>
         </ServiceState>
       </ProductState>
     </div>

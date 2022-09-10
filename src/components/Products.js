@@ -5,9 +5,11 @@ import { useEffect } from 'react';
 import ProductContext from '../store/ProductContext';
 import { Navbar } from './Navbar';
 import { useNavigate } from 'react-router-dom';
+import CartContext from '../store/CartContext';
 
 export function Products(){
     const ProductCtx = useContext(ProductContext);
+    const Cartctx = useContext(CartContext);
     useEffect(() => {
         getItems();
       }, [])
@@ -16,6 +18,26 @@ export function Products(){
         const items_data = await data.json();
         ProductCtx.setItems(items_data.products);
       }
+      const buynowhandler=(event)=>{
+      
+        const CartOBject =
+        {
+             Name : event.target.parentNode.parentNode.querySelector(".Name").innerText,
+             quantity: 1,
+             Price:event.target.parentNode.parentNode.querySelector(".Price").innerText
+         }
+         let cartItem = [...Cartctx.cartItem];
+         console.log(cartItem);
+        cartItem =cartItem.filter(cartitem=>cartitem.Name===event.target.parentNode.parentNode.querySelector(".Name").innerText);
+         if(cartItem.length>0)
+         {
+            cartItem[0].quantity =cartItem[0].quantity +1;
+         }
+         else{
+             Cartctx.setcartitems([...Cartctx.cartItem,CartOBject]);
+         }
+     }
+ 
       const navigate = useNavigate();
 
     return (
@@ -36,7 +58,7 @@ export function Products(){
                                         <div className='Description'>
                                         <h3>{singleData.Description}</h3>
                                         <div className='Availabilty'><h3>{singleData.Availability}</h3></div>
-                                        <button className='buyNow'>buynow</button>
+                                        <button className='buyNow' onClick= {buynowhandler}>buynow</button>
                                         </div>    
                                 </div>
   
@@ -47,6 +69,8 @@ export function Products(){
                        
                         </div>
                         <button  onClick={()=>navigate("/add")}>ADD PRODUCTS</button>
+                        <button  onClick={()=>navigate("/cart")}>cart</button>
+                        
     </div>
     )
 }
