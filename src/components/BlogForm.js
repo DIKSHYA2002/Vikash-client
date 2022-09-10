@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./BlogForm.css";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 import { Navbar } from "./Navbar";
@@ -71,126 +72,143 @@ const BlogForm = (props) => {
   return (
     <div className="form1-container">
       <Navbar />
+      <div className="heading">
+        <h1>CREATE</h1>
+      </div>
       <form className="form-main">
-        <div className="heading">
-          <h1>ADD BLOG DETAILS</h1>
+        <div className="blogdetails">
+          <div id="entries">
+            <div className="i_p">
+              Name:
+              <input
+                type="text"
+                id="Name"
+                name="Name"
+                placeholder="Name"
+                onChange={(event) => {
+                  const { value } = event.target;
+                  setName(value);
+                }}
+              ></input>
+            </div>
+            <div className="i_p">
+              Author:
+              <input
+                type="text"
+                id="availabilty"
+                name="Availabity"
+                placeholder="Availability"
+                onChange={(event) => {
+                  const { value } = event.target;
+                  setCreated(value);
+                }}
+              ></input>
+            </div>
+            <div className="i_p">
+              Village Features:
+              <input
+                type="text"
+                id="Description"
+                name="Description"
+                placeholder="Description (separated by comma)"
+                onChange={(event) => {
+                  const { value } = event.target;
+                  setFamous(value);
+                }}
+              ></input>
+            </div>
+
+            <div className="i_p">
+              Image:
+              <br />
+              <input
+                type="file"
+                id="blogimage"
+                name="blogimage"
+                placeholder="image"
+                onChange={(event) => {
+                  const file = event.target.files[0];
+                  setImage(file);
+                }}
+              ></input>
+            </div>
+          </div>
+          <div id="writepad">
+            <br />
+            <textarea
+              type="text"
+              id="Price"
+              name="Price"
+              placeholder="Write Here"
+              onChange={(event) => {
+                const { value } = event.target;
+                setText(value);
+              }}
+            ></textarea>
+          </div>
         </div>
-        <div className="name fm">
-          <div className="title">BLOG name:</div>
-          <input
-            type="text"
-            id="Name"
-            name="Name"
-            placeholder="name"
-            onChange={(event) => {
-              const { value } = event.target;
-              setName(value);
-            }}
-          ></input>
-        </div>
-        <div className="text fm">
-          <div className="title">BLOGTEXT:</div>
-          <textarea
-            id="Price"
-            name="Price"
-            placeholder="blogText"
-            onChange={(event) => {
-              const { value } = event.target;
-              setText(value);
-            }}
-          ></textarea>
-        </div>
-        <div className="image fm">
-          <div className="title">BLOG image:</div>
-          <input
-            type="file"
-            id="blogimage"
-            name="blogimage"
-            placeholder="image"
-            onChange={(event) => {
-              const file = event.target.files[0];
-              setImage(file);
-            }}
-          ></input>
-        </div>
-        <div className="famous fm">
-          <div className="title">BLOG Famous for(separated by comma):</div>
-          <input
-            type="text"
-            id="Description"
-            name="Description"
-            placeholder="description"
-            onChange={(event) => {
-              const { value } = event.target;
-              setFamous(value);
-            }}
-          ></input>
-        </div>
-        <div className="Availabilty fm">
-          <div className="title">Blog Created By</div>
-          <input
-            type="text"
-            id="availabilty"
-            name="Availabity"
-            placeholder="Availability"
-            onChange={(event) => {
-              const { value } = event.target;
-              setCreated(value);
-            }}
-          ></input>
-        </div>
+
         <div className="subheading">
-          <h1>Visiting Places</h1>
+          <h1>TOURIST PLACES</h1>
         </div>
         {visiting.map((each) => {
           return (
             <div className="visiting" key={each.id}>
               <br />
               <br />
-              <div className="Availabilty fm">
-                <div className="title">placeName</div>
+              <div className="i_p">
+                Place Name:
                 <input
                   type="text"
                   id="availabilty"
                   name="placeName"
-                  placeholder="placeName"
+                  placeholder="Name"
                   onChange={(event) => changeVisiting(each.id, event)}
                 ></input>
               </div>
-              <div className="Availabilty fm">
-                <div className="title">placeLocation</div>
+              <div className="i_p">
+                Location:
                 <input
                   type="text"
                   id="availabilty"
                   name="placeLocation"
-                  placeholder="placeLocation"
+                  placeholder="Location"
                   onChange={(event) => changeVisiting(each.id, event)}
                 ></input>
               </div>
-              <div className="Availabilty fm">
-                <div className="title">placeImage</div>
+              <div className="i_p">
+                Image:
                 <input
                   type="file"
                   id="availabilty"
                   name="placeImage"
-                  placeholder="placeImage"
+                  placeholder="Image"
                   onChange={(event) => changeVisiting(each.id, event)}
                 ></input>
               </div>
+
               <button
+                className="button"
+                title="ADD"
+                onClick={(event) => handleAddFields(event)}
+              >
+                +
+              </button>
+              <button
+                className="button"
+                title="REMOVE"
                 disabled={visiting.length === 1}
                 onClick={() => handleRemoveFields(each.id)}
               >
-                Remove
+                −
               </button>
-              <button onClick={(event) => handleAddFields(event)}>Add</button>
             </div>
           );
         })}
 
         <input
           type="submit"
-          value="Submit"
+          value="SUBMIT"
           className="submit fm"
           onClick={send}
         ></input>

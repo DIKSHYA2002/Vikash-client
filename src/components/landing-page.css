@@ -25,7 +25,7 @@
 
 } */
 
-/* .btn{
+/* .button{
     border: none;
     padding: 11px 22px 11px 22px;
     font-size: 23px;
@@ -59,22 +59,27 @@
     font-weight: 600;
 
 }
+.home .head-1  .text--1 a{
+    font-weight: 650;
+
+}
 .home .head-1  .text--1 hr{
     width: 20%;
     height: 5px;
-    background-color: wheat;
+    background-color: #e7895e;
      margin-top: 20px;
+     border-width: 0px;
 
 }
 .home .head-1  .text--2{
     color: white;
     font-size: 25px;
     padding-left: 40px;
-    padding-top: 35px;
+    padding-top: 20px;
     padding-bottom: 40px;
     line-height: 30px;
 }
-.home .head-1  .btn-getStarted button{
+.home .head-1  .button-getStarted button{
     color: white;
     width: 20%;
     border: 1px white solid;

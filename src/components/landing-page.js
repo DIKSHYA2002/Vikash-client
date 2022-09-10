@@ -21,12 +21,11 @@ export function Homepage() {
             </a>
           </div>
           <div className="text--2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo{" "}
-            <br></br>impedit quisquamnumquam earum minus quibusdam laudantium
-            dolorem <br></br>laboriosam quas ut? Quis adipisci necessitatibus
-            quisquam ipsa.
+            An initiative to learn , explore and help the villages and <br></br>
+            its people. The village with it's indigenous talents makes <br></br>
+            it the major potential of economic growth and development.
           </div>
-          <div className="btn-getStarted">
+          <div className="button-getStarted">
             <h1>
               <button onClick={() => loginWithRedirect()}>Get Started</button>
             </h1>
