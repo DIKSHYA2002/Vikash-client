@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useContext } from "react";
  import { Navbar } from "./Navbar";
  import CartContext from "../store/CartContext";
+ import { useState } from "react";
 
 export function Cart(){
+    let [totalAmount , setTotalAmount]= useState(0);
+
     const Cartctx = useContext(CartContext);
     let cartItem = [...Cartctx.cartItem];
         function remove(event)
@@ -23,7 +26,7 @@ export function Cart(){
                 {
                 
                 cartItem[0].quantity+=1;
-                Cartctx.setcartitems([...Cartctx.cartItem])
+                Cartctx.setcartitems([...Cartctx.cartItem]);
                 }
         }
         function dec(event){
@@ -38,6 +41,19 @@ export function Cart(){
                 }
                     
         }
+        useEffect(() => {
+            total();
+          })
+
+        function total(){
+            let sum =0;
+            Cartctx.cartItem.map((item,index)=>{
+               
+                sum += Number(item.Price)*item.quantity;
+
+            })
+            setTotalAmount(sum);
+        }
   
   return(
     <div className="carts">
@@ -50,7 +66,7 @@ export function Cart(){
         {
            return  <div className="item">
                 <div className="Name">{items.Name}</div>
-                <div>{items.Price}</div>
+                <div>{Number(items.Price)*items.quantity}</div>
                 <button className="inc" onClick={inc} >+</button>
                 {items.quantity}
                 <button className="dec"onClick={dec}>-</button>
@@ -59,6 +75,7 @@ export function Cart(){
              </div>
         })
       }
+      <div><h1>TOTAL AMOUNT:{totalAmount}</h1></div>
       </div>
       </div>
 
