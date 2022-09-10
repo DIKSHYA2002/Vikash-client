@@ -47,6 +47,7 @@ export const BlogList = (props) => {
               <div className="blogText">
                 {singleData.blogText.substring(0, 35) + "..."}
               </div>
+              <div className="clearfix"></div>
               <button
                 className="addCart"
                 onClick={(e) => viewBlog(e, singleData._id)}
