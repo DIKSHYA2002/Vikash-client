@@ -19,8 +19,8 @@ function App() {
           <CartState>
           <Routes>
             <Route path="/" element={<Homepage />} />
-            <Route path="/add" element={<FormsAll />} />
-            <Route path="/products" element={<Products />} />
+            <Route path="/add" element={<FormsAll />}/>
+            <Route path="/products" element={<Products />}/>
             <Route path="/services" element={<Services />} />
             <Route path="/blog" element={<BlogList />} />
             <Route path="/addblog" element={<BlogForm />} />

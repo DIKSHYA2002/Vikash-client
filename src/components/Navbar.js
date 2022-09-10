@@ -101,7 +101,7 @@ export const Navbar = () => {
                     Services
                   </NavLink>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <NavLink
                     exact
                     to="/about"
@@ -111,7 +111,7 @@ export const Navbar = () => {
                   >
                     About
                   </NavLink>
-                </li>
+                </li> */}
                 <li>
                   <button
                     className="btn"

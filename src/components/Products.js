@@ -27,7 +27,6 @@ export function Products(){
              Price:event.target.parentNode.parentNode.querySelector(".Price").innerText
          }
          let cartItem = [...Cartctx.cartItem];
-         console.log(cartItem);
         cartItem =cartItem.filter(cartitem=>cartitem.Name===event.target.parentNode.parentNode.querySelector(".Name").innerText);
          if(cartItem.length>0)
          {

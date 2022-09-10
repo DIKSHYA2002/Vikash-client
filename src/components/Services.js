@@ -5,11 +5,13 @@ import './ProductList.css';
 import { Navbar } from "./Navbar";
 import {useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import CartContext from '../store/CartContext';
 
 
 export function Services(props)
 {
             const ServiceCtx = useContext(ServiceContext);
+            const Cartctx = useContext(CartContext);
             useEffect(()=>{
             getServices();
         },[])
@@ -19,6 +21,27 @@ export function Services(props)
                 
                 ServiceCtx.setservices(items_data.products);
         }
+
+        const buynowhandler=(event)=>{
+      
+            const CartOBject =
+            {
+                 Name : event.target.parentNode.querySelector(".TypeOfService").innerText,
+                 quantity: 1,
+                 Price:event.target.parentNode.querySelector(".Cost").innerText
+             }
+             let cartItem = [...Cartctx.cartItem];
+             console.log(cartItem);
+            cartItem =cartItem.filter(cartitem=>cartitem.Name===event.target.parentNode.querySelector(".TypeOfService").innerText);
+             if(cartItem.length>0)
+             {
+                cartItem[0].quantity =cartItem[0].quantity +1;
+             }
+             else{
+                 Cartctx.setcartitems([...Cartctx.cartItem,CartOBject]);
+             }
+         }
+     
         const navigate = useNavigate();
     return (
              <div className='list'>
@@ -38,7 +61,7 @@ export function Services(props)
                                                     <div className='Cost'><h3>{singleData.Cost}</h3></div>
                                                     <div className='servicedescription'>
                                                     <h3>{singleData.Servicedescription}</h3> </div>
-                                                    <button className='Avail'>avail now</button>
+                                                    <button className='Avail' onClick= {buynowhandler}>avail now</button>
                                                     </div>
                                         
                                             
@@ -48,6 +71,7 @@ export function Services(props)
                               </div>
                       </div>
                       <button onClick={()=>navigate("/add")}>ADD PRODUCTS</button>
+                      <button  onClick={()=>navigate("/cart")}>cart</button>
               </div>
             )
 }
