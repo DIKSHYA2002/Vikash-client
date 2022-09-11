@@ -73,7 +73,7 @@ export function Services(props)
                               </div>
                       </div>
                       
-                      <button id='cart' onClick={()=>navigate("/cart")}><img className='icon' src="https://media.istockphoto.com/vectors/shopping-cart-icon-isolated-on-white-background-vector-id1206806317?k=20&m=1206806317&s=170667a&w=0&h=kEh5VLsTHukWc7xf2BvUs8ssqS_d7vkK0-xU3MDpO7s="></img><div id='btn'>CART</div></button>
+                      <button id='cart' onClick={()=>navigate("/cart")}><img className='icon' src="https://media.istockphoto.com/vectors/shopping-cart-icon-isolated-on-white-background-vector-id1206806317?k=20&m=1206806317&s=170667a&w=0&h=kEh5VLsTHukWc7xf2BvUs8ssqS_d7vkK0-xU3MDpO7s="></img><div id='btn'><h2>{Cartctx.cartItem.length}</h2></div></button>
               </div>
             )
 }
