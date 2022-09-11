@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;800;900&display=swap');
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 .home{
     background-image: url(../images/background.jpg);
@@ -76,11 +76,11 @@
   }
   .section button{
         position: absolute;
-        top: 65%;
-        left: 13%;
+        top: 67%;
+        left: 14.5%;
         transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
-        background-color: #555;
+        background-color: #e7895e;
         color: white;
         font-size: 30px;
         padding: 12px 24px;
@@ -89,13 +89,16 @@
         border-radius: 5px;
       
   }
+  .section button:hover{
+    background-color: #ffa175;
+}
   .section-2 button{
     position: absolute;
         top: 70%;
-        left: 17%;
+        left: 19%;
         transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
-        background-color: #555;
+        background-color: #e7895e;
         color: white;
         font-size: 30px;
         padding: 12px 24px;
@@ -104,6 +107,6 @@
         border-radius: 5px;
   }
   .section-3 button{
-        left: 15%;
+        left: 17%;
        
   }

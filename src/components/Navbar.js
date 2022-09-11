@@ -1,47 +1,26 @@
 import logo from "../images/logo.png";
-// import './Navbar.css';
-
-// export function Navbar(){
-//     return (
-//          <div className="nav2">
-//    <div className="links">
-//     <ul>
-//        <li><Link to = "/">HOME</Link></li>
-//         <li><Link to = "/create">CREATE</Link></li>
-//         <li><Link to = "/Blogs">BLOGS</Link></li>
-//         <li><Link to = "/products">PRODUCTS</Link></li>
-//         <li><Link to = "/services">SERVICES</Link></li>
-//         <li><Link to = "/about">ABOUT</Link></li>
-//     </ul>
-//     <div className="logo">
-//        <img src={logo} ></img>
-//     </div>
-// </div>
-
-// </div>
-//     )
-
-// }
-
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 import { useAuth0 } from "@auth0/auth0-react";
+import Loading from "./Loading";
 
 export const Navbar = () => {
   const [click, setClick] = useState(false);
 
   const handleClick = () => setClick(!click);
 
-  const { loginWithRedirect, isAuthenticated, user } = useAuth0();
+  const { loginWithRedirect, isAuthenticated, user, isLoading } = useAuth0();
   const { logout } = useAuth0();
-
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <>
       <nav className="navbar">
         <div className="nav-container">
           <NavLink exact to="/" className="nav-logo">
-            <img src={logo} alt="Loading.." />
+            <img src={logo} alt="Loading.." className="image" />
           </NavLink>
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
@@ -60,7 +39,7 @@ export const Navbar = () => {
                 <li className="nav-item">
                   <NavLink
                     exact
-                    to="/addblog"
+                    to="/addBlog"
                     activeClassName="active"
                     className="nav-links"
                     onClick={handleClick}
@@ -101,17 +80,6 @@ export const Navbar = () => {
                     Services
                   </NavLink>
                 </li>
-                {/* <li className="nav-item">
-                  <NavLink
-                    exact
-                    to="/about"
-                    activeClassName="active"
-                    className="nav-links"
-                    onClick={handleClick}
-                  >
-                    About
-                  </NavLink>
-                </li> */}
                 <li>
                   <button
                     className="btn"
@@ -128,9 +96,11 @@ export const Navbar = () => {
                 </button>
               </li>
             )}
-            <li className="nav-item">
-              {isAuthenticated && <p className="user">{user.email}</p>}
-            </li>
+            {/* <li className="nav-item">
+              {isAuthenticated && (
+                <img className="user" src={user.picture} alt="" />
+              )}
+            </li> */}
           </ul>
           <div className="nav-icon" onClick={handleClick}>
             <i className={click ? "fa fa-times" : "fa fa-bars"}></i>
@@ -140,5 +110,3 @@ export const Navbar = () => {
     </>
   );
 };
-
-// export default Navbar;
