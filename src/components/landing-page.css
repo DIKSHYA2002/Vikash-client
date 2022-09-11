@@ -8,42 +8,10 @@
 .home{
     background-image: url(../images/background.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
     height: 100%;
-    overflow: hidden;
 }
-/* .home .nav .links a{
-    color: white;
-    font-weight: 600;
-    text-decoration: none;
-    font-size: 20px;
-} */
-/* .home .nav .links{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-
-} */
-
-/* .btn{
-    border: none;
-    padding: 11px 22px 11px 22px;
-    font-size: 23px;
-    /* background-color:#E7895E; 
-    font-weight: bold;
-    cursor:pointer;
-} */
-
-/* .home .nav ul{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 5px;
-    list-style-type: none;
-} */
-/* .home .nav li{
-    padding: 10px;
-} */
 .home .head-1{
     padding-top: 30px;
     padding-bottom: 30px;
@@ -63,7 +31,7 @@
     width: 20%;
     height: 5px;
     background-color: wheat;
-     margin-top: 20px;
+    margin-top: 20px;
 
 }
 .home .head-1  .text--2{
@@ -87,5 +55,21 @@
 .text--1 .village{
     font-size: 1em;
     color: #E7895E;
+}
+
+.auth-button{
+    text-decoration: none;
+    color: #fff;
+    font-size: 23px;
+    margin-left: 23px;
+    padding: 9px 20px 9px 20px;
+    background-color: #E7895E;
+    border: 2px solid #fff;
+}
+
+@media screen and (max-width: 960px){
+    .home{
+        overscroll-behavior-x: scroll;
+    }
 }
 
