@@ -24,7 +24,7 @@ export const BlogList = (props) => {
     const URL = "/blog/" + id;
     navigate(URL);
   };
-  if (!load) {
+  if (!load && !blog) {
     <Loading />;
   } else {
     return (

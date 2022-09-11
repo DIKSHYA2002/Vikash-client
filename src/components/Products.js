@@ -45,6 +45,7 @@ export function Products() {
   };
 
   const navigate = useNavigate();
+
   if (!load) {
     return <Loading />;
   } else {
@@ -103,7 +104,9 @@ export function Products() {
             className="icon"
             src="https://media.istockphoto.com/vectors/shopping-cart-icon-isolated-on-white-background-vector-id1206806317?k=20&m=1206806317&s=170667a&w=0&h=kEh5VLsTHukWc7xf2BvUs8ssqS_d7vkK0-xU3MDpO7s="
           ></img>
-          <div id="btn">CART</div>
+          <div id="btn">
+            <h2>{Cartctx.cartItem.length}</h2>
+          </div>
         </button>
       </div>
     );
