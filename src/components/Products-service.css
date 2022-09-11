@@ -1,8 +1,8 @@
 .forms{
-
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(500px,1fr));
+    grid-gap: 30px ;
+    grid-auto-rows:minmax(100px,auto);
 }
 
 .form-main {
@@ -18,5 +18,17 @@
 }
 .navs{
     background-color: black;
+}
+
+.head{
+    color: white;
+    font-family:sans-serif;
+    margin-bottom: 0px;
+    text-align: center;
+    /* background: url("../images/final.jpg"); */
+    height: 90px;
+    padding: 20px;
+    font-size: 20px;
+    
 }
 

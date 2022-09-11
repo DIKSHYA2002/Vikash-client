@@ -132,10 +132,10 @@ textarea::placeholder{
     font-size: x-large;
     font-weight: bolder;
     text-decoration: underline #e7895e;
-    text-align: center;
+    text-align: right;
     color: white;
      border-left: 2px solid gray;
-    padding-left: 20px;
+    padding-left: 30px;
 
 }
 
@@ -159,7 +159,7 @@ input[type='file']::-webkit-file-upload-button{
 
 input[type='file']::-webkit-file-upload-button:hover{
     cursor: pointer;
-    background-color: #e7895e;
+    background-color: #b9643c;
 }
 
 
@@ -176,7 +176,7 @@ input[type='submit']{
 
 input[type='submit']:hover{
     cursor: pointer;
-    background-color: #e7895e;
+    background-color: #b46d4c;
 }
 
 .button{

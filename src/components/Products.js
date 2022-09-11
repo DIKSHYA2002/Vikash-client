@@ -22,19 +22,21 @@ export function Products(){
       
         const CartOBject =
         {
-             Name : event.target.parentNode.parentNode.querySelector(".Name").innerText,
+             Name : event.target.parentNode.querySelector(".Name").innerText,
              quantity: 1,
-             Price:event.target.parentNode.parentNode.querySelector(".Price").innerText
+             Price: event.target.parentNode.querySelector(".Price").querySelector("a").innerText
          }
          let cartItem = [...Cartctx.cartItem];
-        cartItem =cartItem.filter(cartitem=>cartitem.Name===event.target.parentNode.parentNode.querySelector(".Name").innerText);
+        cartItem =cartItem.filter(cartitem=>cartitem.Name===event.target.parentNode.querySelector(".Name").innerText);
          if(cartItem.length>0)
          {
             cartItem[0].quantity =cartItem[0].quantity +1;
          }
          else{
              Cartctx.setcartitems([...Cartctx.cartItem,CartOBject]);
+
          }
+         console.log(Cartctx.cartItem);
      }
  
       const navigate = useNavigate();
@@ -45,20 +47,26 @@ export function Products(){
           <Navbar />
          </div>
         <h1>Products</h1>
+        <button  id='add' onClick={()=>navigate("/add")}>+ ADD PRODUCTS</button>
         <div className='ProductsList'>
                         <div className='product' >
                                     {ProductCtx.items.map((singleData,index) => 
                                     {
                                       const base64String = btoa( String.fromCharCode(...new Uint8Array(singleData.ProductImage.data.data))  );
                                         return <div className='item-container'key={index}>
-                                        <img src={`data:image/png;base64,${base64String}`}  width="300"></img>
                                         <div className='Name'><h3>{singleData.Name}</h3></div>
-                                        <div className='Price'><h3>{singleData.Price}</h3></div>
+                                        <img className='IMAGE' src={`data:image/png;base64,${base64String}`}  width="300"></img>
+                                        
+                                        
                                         <div className='Description'>
-                                        <h3>{singleData.Description}</h3>
+                                          <h3>{singleData.Description}</h3>
+                                        </div> 
+                                        <div className='Price'><h3>₹<a>{singleData.Price}</a></h3></div>
+
                                         <div className='Availabilty'><h3>{singleData.Availability}</h3></div>
-                                        <button className='buyNow' onClick= {buynowhandler}>buynow</button>
-                                        </div>    
+
+                                        <button className='buyNow' onClick= {buynowhandler}>+ ADD TO CART</button>
+                                           
                                 </div>
   
                                     
@@ -67,8 +75,8 @@ export function Products(){
                         </div>
                        
                         </div>
-                        <button  onClick={()=>navigate("/add")}>ADD PRODUCTS</button>
-                        <button  onClick={()=>navigate("/cart")}>cart</button>
+                        
+                        <button id='cart' onClick={()=>navigate("/cart")}><img className='icon' src="https://media.istockphoto.com/vectors/shopping-cart-icon-isolated-on-white-background-vector-id1206806317?k=20&m=1206806317&s=170667a&w=0&h=kEh5VLsTHukWc7xf2BvUs8ssqS_d7vkK0-xU3MDpO7s="></img><div id='btn'>CART</div></button>
                         
     </div>
     )

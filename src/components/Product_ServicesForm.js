@@ -1,8 +1,8 @@
 import React ,{useContext, useState} from "react";
 import  axios from "axios";
 import './Products-service.css';
+import './BlogForm.css';
 import { Navbar } from "./Navbar";
-
 export const  AddProducts =(props)=> {
     const [Name , setName ] = useState();
     const [Price , setPrice ] = useState();
@@ -27,37 +27,37 @@ export const  AddProducts =(props)=> {
 
                     <div className="form1-container">
                         <form className="form-main" >
-                            <div className="heading">
-                                <h1>products</h1>
+                            <div className="head">
+                                <h1>PRODUCT</h1>
                             </div>
-                            <div className="name fm">
-                                    <div className="title">item name:</div>
+                            <div className="i_p">
+                                    Item Name: 
                                     <input type="text" id="Name"  name="Name" placeholder="name" 
                                     onChange={ event => {
                                     const {value} = event.target;
                                     setName(value) ;}}></input>
                             </div>
-                            <div className="price fm">
-                                     <div className="title">item price:</div>
+                            <div className="i_p">
+                                     Item Price:
                                     <input type="text" id="Price" name="Price"placeholder="price" 
                                      onChange={ event => {
                                         const {value} = event.target;
                                         setPrice(value);}}></input>
                             </div>
-                              <div className="image fm">
-                                    <div className="title">item image:</div>
+                              <div className="i_p">
+                                    Item Image: 
                                     <input type="file" id="itemimage" name="itemimage"placeholder="image"   onChange={ event => {
                                         const file = event.target.files[0];
                                         setProductImage(file);}}></input>
                             </div>
-                            <div className="description fm">
-                                    <div className="title">item description:</div>
+                            <div className="i_p">
+                                    Item Description: 
                                     <input type="text" id="Description" name="Description"placeholder="description" onChange={ event => {
                                         const {value} = event.target;
                                         setDescription(value);}} ></input>
                             </div>
-                            <div className="Availabilty fm">
-                                    <div className="title">availabilty:</div>
+                            <div className="i_p">
+                                    Availabilty: 
                                     <input type="text" id="availabilty" name="Availabity"placeholder="Availability" onChange={ event => {
                                         const {value} = event.target;
                                         setavailability(value)}} ></input>
@@ -95,37 +95,37 @@ export const  AddServices =(props)=> {
                     <div className="form2-container">
                         
                         <form className="form-main" >
-                        <div className="heading">
-                                <h1>services</h1>
+                        <div className="head">
+                                <h1>SERVICES</h1>
                             </div>
-                            <div className="name fm">
-                                    <div className="title">service type:</div>
+                            <div className="i_p">
+                                    Service Type: 
                                     <input type="text" id="Name"  name="Name" placeholder="name" 
                                     onChange={ event => {
                                     const {value} = event.target;
                                    settype(value) ;}}></input>
                             </div>
-                            <div className="price fm">
-                                     <div className="title">charges:</div>
+                            <div className="i_p">
+                                     Charges: 
                                     <input type="text" id="Price" name="Price"placeholder="price" 
                                      onChange={ event => {
                                         const {value} = event.target;
                                         setcost(value);}}></input>
                             </div>
-                              <div className="image fm">
-                                    <div className="title">image:</div>
+                              <div className="i_p">
+                                    Image:
                                     <input type="file" id="itemimage" name="itemimage"placeholder="image"   onChange={ event => {
                                         const file = event.target.files[0];
                                         setservice(file);}}></input>
                             </div>
-                            <div className="description fm">
-                                    <div className="title">service description</div>
+                            <div className="i_p">
+                                    Service Description: 
                                     <input type="text" id="Description" name="Description"placeholder="description" onChange={ event => {
                                         const {value} = event.target;
                                         setDescription(value);}} ></input>
                             </div>
-                            <div className="Availabilty fm">
-                                    <div className="title">availabilty:</div>
+                            <div className="i_p">
+                                    Availabilty: 
                                     <input type="text" id="availabilty" name="Availabity"placeholder="Availability" onChange={ event => {
                                         const {value} = event.target;
                                         setavailability(value)}} ></input>

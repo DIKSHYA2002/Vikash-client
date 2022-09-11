@@ -1,7 +1,6 @@
 import  React ,{useContext} from 'react';
 import './ProductList.css';
 import ServiceContext from '../store/ServiceContext';
-import './ProductList.css';
 import { Navbar } from "./Navbar";
 import {useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -26,13 +25,13 @@ export function Services(props)
       
             const CartOBject =
             {
-                 Name : event.target.parentNode.querySelector(".TypeOfService").innerText,
+                 Name : event.target.parentNode.querySelector(".Name").innerText,
                  quantity: 1,
-                 Price:event.target.parentNode.querySelector(".Cost").innerText
+                 Price:event.target.parentNode.querySelector(".Price").querySelector("a").innerText
              }
              let cartItem = [...Cartctx.cartItem];
              console.log(cartItem);
-            cartItem =cartItem.filter(cartitem=>cartitem.Name===event.target.parentNode.querySelector(".TypeOfService").innerText);
+            cartItem =cartItem.filter(cartitem=>cartitem.Name===event.target.parentNode.querySelector(".Name").innerText);
              if(cartItem.length>0)
              {
                 cartItem[0].quantity =cartItem[0].quantity +1;
@@ -49,6 +48,7 @@ export function Services(props)
          <Navbar />
          </div>
                     <h1>Services</h1>
+                    <button id='add' onClick={()=>navigate("/add")}>+ ADD SERVICES</button>
                         <div className='service_list'>
                                 <div className='services'>
                                     {  ServiceCtx.services.map((singleData,index) => 
@@ -56,12 +56,14 @@ export function Services(props)
                                                 const base64String = btoa( String.fromCharCode(...new Uint8Array(singleData.serviceImage.data.data))  );
 
                                                 return <div className='item-container' key={index}>
-                                                    <img src={`data:image/png;base64,${base64String}`} width='300' className='itemimage'></img>
-                                                    <div className='TypeOfService'><h3>{singleData.TypeOfService}</h3></div>
-                                                    <div className='Cost'><h3>{singleData.Cost}</h3></div>
-                                                    <div className='servicedescription'>
+                                                    <div className='Name'><h3>{singleData.TypeOfService}</h3></div>
+                                                    <img src={`data:image/png;base64,${base64String}`} width='300' className='IMAGE'></img>
+                                                    
+                                                    
+                                                    <div className='Description'>
                                                     <h3>{singleData.Servicedescription}</h3> </div>
-                                                    <button className='Avail' onClick= {buynowhandler}>avail now</button>
+                                                    <div className='Price'><h3>₹<a>{singleData.Cost}</a></h3></div>
+                                                    <button className='buyNow' onClick= {buynowhandler}>AVAIL NOW</button>
                                                     </div>
                                         
                                             
@@ -70,8 +72,8 @@ export function Services(props)
                                     }
                               </div>
                       </div>
-                      <button onClick={()=>navigate("/add")}>ADD PRODUCTS</button>
-                      <button  onClick={()=>navigate("/cart")}>cart</button>
+                      
+                      <button id='cart' onClick={()=>navigate("/cart")}><img className='icon' src="https://media.istockphoto.com/vectors/shopping-cart-icon-isolated-on-white-background-vector-id1206806317?k=20&m=1206806317&s=170667a&w=0&h=kEh5VLsTHukWc7xf2BvUs8ssqS_d7vkK0-xU3MDpO7s="></img><div id='btn'>CART</div></button>
               </div>
             )
 }

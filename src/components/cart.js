@@ -3,6 +3,7 @@ import { useContext } from "react";
  import { Navbar } from "./Navbar";
  import CartContext from "../store/CartContext";
  import { useState } from "react";
+ import "./cart.css";
 
 export function Cart(){
     let [totalAmount , setTotalAmount]= useState(0);
@@ -13,14 +14,14 @@ export function Cart(){
         {
             let cartItem = [...Cartctx.cartItem];
              cartItem = Cartctx.cartItem.filter((item)=>{
-                return item.Name!=event.target.parentNode.querySelector(".Name").innerText;})
+                return item.Name!=event.target.parentNode.parentNode.querySelector(".name").innerText;})
             Cartctx.setcartitems([...cartItem]);
         
 
         }
        function inc(event){
                 cartItem = Cartctx.cartItem.filter((item)=>{
-                    return  item.Name===event.target.parentNode.querySelector(".Name").innerText;
+                    return  item.Name===event.target.parentNode.parentNode.querySelector(".name").innerText;
                 })
                 if(cartItem[0].quantity >=1)
                 {
@@ -31,7 +32,7 @@ export function Cart(){
         }
         function dec(event){
                     cartItem = Cartctx.cartItem.filter((item)=>{
-                        return item.Name===event.target.parentNode.querySelector(".Name").innerText;
+                        return item.Name===event.target.parentNode.parentNode.querySelector(".name").innerText;
                     })
                 if(cartItem[0].quantity >=2)
                 {
@@ -60,22 +61,29 @@ export function Cart(){
     <div className="nav">
       <Navbar/>
       </div>
+      <h1 id="shop">SHOPPING CART</h1>
       <div className="cart">
       {
         Cartctx.cartItem.map((items ,index)=>
         {
-           return  <div className="item">
-                <div className="Name">{items.Name}</div>
-                <div>{Number(items.Price)*items.quantity}</div>
-                <button className="inc" onClick={inc} >+</button>
-                {items.quantity}
-                <button className="dec"onClick={dec}>-</button>
-                <button className="remove" onClick={remove}>remove</button>
-
-             </div>
+           return  <div className="shop">
+                <div className="item">
+                    <div className="name">{items.Name}</div>
+                    <div className="quantity">
+                    <button className="fn" id='minus' onClick={dec}>−</button>
+                    <input type= 'Number' value={items.quantity}  readOnly></input>
+                    <button className="fn" id='plus' onClick={inc} >+</button>
+                    <br/>
+                    <button className="remove" onClick={remove}>Remove</button>
+                    </div>
+                    
+                    
+                    <div className="price">₹ {Number(items.Price)*items.quantity}</div>
+                    </div><div className='clear'></div>
+                </div>
         })
       }
-      <div><h1>TOTAL AMOUNT:{totalAmount}</h1></div>
+      <div><h3 id="total">TOTAL AMOUNT: ₹ {totalAmount}</h3></div>
       </div>
       </div>
 
